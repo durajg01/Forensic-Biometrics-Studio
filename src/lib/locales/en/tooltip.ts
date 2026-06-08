@@ -41,6 +41,7 @@ const d: Dictionary = {
     "Clear measurement": "Clear measurement",
     Distance: "Distance",
     Unit: "Unit",
+    DPI: "DPI",
     "Area instructions":
         "Click to place points. Click the first point to close the polygon.",
     Area: "Area",

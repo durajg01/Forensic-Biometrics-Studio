@@ -7,6 +7,7 @@ import {
     calcPolygonArea,
     convertPx,
     convertPxArea,
+    DEFAULT_DPI,
     DISTANCE_UNITS,
     DistanceUnit,
 } from "@/lib/utils/measurement/distance";
@@ -24,9 +25,15 @@ type AreaModeSectionProps = {
     unit: DistanceUnit;
     setUnit: (unit: DistanceUnit) => void;
     unitLabel: string;
+    dpi: number;
 };
 
-function AreaModeSection({ unit, setUnit, unitLabel }: AreaModeSectionProps) {
+function AreaModeSection({
+    unit,
+    setUnit,
+    unitLabel,
+    dpi,
+}: AreaModeSectionProps) {
     const { t } = useTranslation();
 
     const leftTempPoints = AreaStore.use(
@@ -89,7 +96,8 @@ function AreaModeSection({ unit, setUnit, unitLabel }: AreaModeSectionProps) {
                                     <span className="font-mono text-xs font-medium">
                                         {convertPxArea(
                                             calcPolygonArea(leftFinished),
-                                            unit
+                                            unit,
+                                            dpi
                                         )}{" "}
                                         {unitLabel}
                                     </span>
@@ -130,7 +138,8 @@ function AreaModeSection({ unit, setUnit, unitLabel }: AreaModeSectionProps) {
                                     <span className="font-mono text-xs font-medium">
                                         {convertPxArea(
                                             calcPolygonArea(rightFinished),
-                                            unit
+                                            unit,
+                                            dpi
                                         )}{" "}
                                         {unitLabel}
                                     </span>
@@ -184,6 +193,7 @@ export function MeasurementPanel({
 }: MeasurementPanelProps) {
     const { t } = useTranslation();
     const [unit, setUnit] = useState<DistanceUnit>("px");
+    const [dpi, setDpi] = useState(DEFAULT_DPI);
 
     const cursorMode = DashboardToolbarStore.use(
         state => state.settings.cursor.mode
@@ -248,6 +258,20 @@ export function MeasurementPanel({
                 </button>
             </div>
 
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span className="shrink-0">{t("DPI", { ns: "tooltip" })}:</span>
+                <input
+                    type="number"
+                    min={1}
+                    value={dpi}
+                    onChange={e => {
+                        const val = parseInt(e.target.value, 10);
+                        if (val > 0) setDpi(val);
+                    }}
+                    className="w-16 rounded border border-border bg-background px-1 py-0.5 text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+                />
+            </div>
+
             {!isAreaMode && (
                 <>
                     <p className="text-xs text-muted-foreground leading-relaxed">
@@ -273,7 +297,7 @@ export function MeasurementPanel({
                                 )}
                                 {leftLineExists && (
                                     <span className="text-xs text-muted-foreground">
-                                        {convertPx(leftPx, unit)} {unit}
+                                        {convertPx(leftPx, unit, dpi)} {unit}
                                     </span>
                                 )}
                             </div>
@@ -313,7 +337,7 @@ export function MeasurementPanel({
                                 )}
                                 {rightLineExists && (
                                     <span className="text-xs text-muted-foreground">
-                                        {convertPx(rightPx, unit)} {unit}
+                                        {convertPx(rightPx, unit, dpi)} {unit}
                                     </span>
                                 )}
                             </div>
@@ -375,6 +399,7 @@ export function MeasurementPanel({
                     unit={unit}
                     setUnit={setUnit}
                     unitLabel={unitLabel}
+                    dpi={dpi}
                 />
             )}
         </div>

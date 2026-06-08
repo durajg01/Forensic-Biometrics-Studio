@@ -43,6 +43,7 @@ const d: Dictionary = {
     "Clear measurement": "Wyczyść miarkę",
     Distance: "Odległość",
     Unit: "Jednostka miary",
+    DPI: "DPI",
     "Area instructions":
         "Klikaj, aby dodawać punkty. Kliknij pierwszy punkt, aby zamknąć wielokąt.",
     Area: "Pole powierzchni",

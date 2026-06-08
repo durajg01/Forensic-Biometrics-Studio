@@ -190,6 +190,7 @@ export type i18nTooltip = Recordify<
     | "Clear measurement"
     | "Distance"
     | "Unit"
+    | "DPI"
     | "Brightness"
     | "Contrast"
     | "Reset Zoom"
