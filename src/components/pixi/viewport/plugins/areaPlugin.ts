@@ -109,7 +109,10 @@ export class AreaPlugin extends Plugin {
         if (tempPoints.length >= 3 && tempPoints[0]) {
             const dx = pos.x - tempPoints[0].x;
             const dy = pos.y - tempPoints[0].y;
-            if (Math.sqrt(dx * dx + dy * dy) < CLOSE_DISTANCE_PX) {
+            if (
+                Math.sqrt(dx * dx + dy * dy) <
+                CLOSE_DISTANCE_PX / this.viewport.scale.x
+            ) {
                 AreaStore.actions.finishPolygon(this.canvasId);
                 return;
             }
