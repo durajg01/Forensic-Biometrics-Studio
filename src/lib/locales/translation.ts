@@ -188,7 +188,6 @@ export type i18nTooltip = Recordify<
     | "Failed to load tracing data"
     | "Measurement instructions"
     | "Clear measurement"
-    | "Distance"
     | "Unit"
     | "DPI"
     | "Brightness"

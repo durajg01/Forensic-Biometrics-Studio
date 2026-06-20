@@ -41,7 +41,6 @@ const d: Dictionary = {
     "Measurement instructions":
         "Narysuj linię pomiędzy dwoma punktami na obrazie, aby zmierzyć odległość",
     "Clear measurement": "Wyczyść miarkę",
-    Distance: "Odległość",
     Unit: "Jednostka miary",
     DPI: "DPI",
     "Area instructions":
