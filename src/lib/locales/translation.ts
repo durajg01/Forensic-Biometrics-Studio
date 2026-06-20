@@ -212,6 +212,8 @@ export type i18nTooltip = Recordify<
     | "Drawing"
     | "Points"
     | "Ruler"
+    | "LeftCanvasLabel"
+    | "RightCanvasLabel"
 >;
 
 export type i18nDialog = Recordify<

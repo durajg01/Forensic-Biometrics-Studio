@@ -70,6 +70,8 @@ const d: Dictionary = {
     "Polyline requires at least 2 segments":
         "Linia łamana wymaga co najmniej 2 segmentów",
     Ruler: "Miarka",
+    LeftCanvasLabel: "L",
+    RightCanvasLabel: "P",
 };
 
 export default d;

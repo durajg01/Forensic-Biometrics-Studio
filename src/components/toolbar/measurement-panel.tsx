@@ -187,7 +187,7 @@ function AreaModeSection({ unit, setUnit, dpi }: AreaModeSectionProps) {
             {hasAnyArea && (
                 <div className="flex flex-col gap-2 text-sm">
                     <AreaCanvasRow
-                        label="L"
+                        label={t("LeftCanvasLabel", { ns: "tooltip" })}
                         tempPoints={leftTempPoints}
                         finished={leftFinished}
                         unit={unit}
@@ -195,7 +195,7 @@ function AreaModeSection({ unit, setUnit, dpi }: AreaModeSectionProps) {
                         canvasId={CANVAS_ID.LEFT}
                     />
                     <AreaCanvasRow
-                        label="P"
+                        label={t("RightCanvasLabel", { ns: "tooltip" })}
                         tempPoints={rightTempPoints}
                         finished={rightFinished}
                         unit={unit}
@@ -326,7 +326,7 @@ export function MeasurementPanel({
 
                     <div className="flex flex-col gap-2 text-sm">
                         <LineRow
-                            label="L"
+                            label={t("LeftCanvasLabel", { ns: "tooltip" })}
                             lineExists={leftLineExists}
                             px={leftPx}
                             unit={unit}
@@ -334,7 +334,7 @@ export function MeasurementPanel({
                             canvasId={CANVAS_ID.LEFT}
                         />
                         <LineRow
-                            label="P"
+                            label={t("RightCanvasLabel", { ns: "tooltip" })}
                             lineExists={rightLineExists}
                             px={rightPx}
                             unit={unit}

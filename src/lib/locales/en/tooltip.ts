@@ -68,6 +68,8 @@ const d: Dictionary = {
     "Polyline requires at least 2 segments":
         "Polyline requires at least 2 segments",
     Ruler: "Ruler",
+    LeftCanvasLabel: "L",
+    RightCanvasLabel: "R",
 };
 
 export default d;
